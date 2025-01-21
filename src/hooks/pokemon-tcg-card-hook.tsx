@@ -9,7 +9,7 @@ import { PlayinCardTcgMapper } from "@/mappers/pokemon-tcg/playing-card-mapper";
 export function useInfiniteTcgCards() {
   const { ref, inView } = useInView({
     threshold: 0.5,
-    rootMargin: "0px 0px -1px 0px",
+    rootMargin: "0px 0px -0px 0px",
   });
 
   const {

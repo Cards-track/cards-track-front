@@ -39,9 +39,9 @@ export function PlayingCardCard({ card }: PlayingCardCardProps) {
             <div className="flex items-center gap-2 font-medium leading-none">
               {card.tcgplayer?.prices?.lowestMarket ? (
                 <>
-                  People are willing to pay
+                  Willing price
                   <span className="text-accent-foreground text-green-700">
-                    {`$${card.tcgplayer?.prices?.lowestMarket ?? "N/A"}`}
+                    {`$${card.tcgplayer?.prices?.lowestMarket}`}
                   </span>
                   <TrendingUp className="h-4 w-4 text-green-700" />
                 </>
