@@ -8,6 +8,7 @@ import { PlayingCardData } from "@/types/playing-card/playing-card-type";
 import { useInView } from "react-intersection-observer";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { PlayinCardTcgMapper } from "@/mappers/pokemon-tcg/playing-card-mapper";
+import { PlayingCardListSkeleton } from "../skeletons/lists/playing-card-list-skeleton";
 
 const fetchCards = async ({
   pageParam,
@@ -16,23 +17,21 @@ const fetchCards = async ({
 }): Promise<ApiCardReponse> => {
   // Pour une vraie API, utilisez :
   const response = await fetch(
-    `https://api.pokemontcg.io/v2/cards?page=${pageParam}&pageSize=20&select=id,name,rarity,set,tcgplayer,images`,
+    `https://api.pokemontcg.io/v2/cards?q=name:charizard&page=${pageParam}&pageSize=10&select=id,name,rarity,set,tcgplayer,images`,
     {
       headers: {
         "X-Api-Key": process.env.NEXT_PUBLIC_POKEMON_TCG_API_KEY ?? "",
       },
     }
   );
-  const data = await response.json();
-  console.log("Response data:", data); // Debug log
-  return data;
+  return await response.json();
 };
 
 export function PlayingCardList() {
   const { ref, inView } = useInView({
-    threshold: 0.1, // Déclencher plus tôt
-    rootMargin: "100px",
+    threshold: 0.5, // Déclencher plus tôt
   });
+
   const {
     data,
     isLoading,
@@ -45,8 +44,6 @@ export function PlayingCardList() {
     queryFn: fetchCards,
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
-      console.log("LastPage:", lastPage);
-      console.log("AllPages length:", allPages.length);
       if (lastPage.data.length === 0) return undefined;
       return allPages.length + 1;
     },
@@ -64,29 +61,24 @@ export function PlayingCardList() {
     }
   }, [inView, fetchNextPage, hasNextPage]);
 
-  if (isLoading) return <div>Chargement...</div>;
+  if (isLoading)
+    return (
+      <Grid cols="5" gap="4">
+        <PlayingCardListSkeleton />
+      </Grid>
+    );
   if (error) return <div>Une erreur est survenue</div>;
   return (
-    <>
-      <Grid cols="5" gap="4">
-        {data?.pages.map((cards, i) => (
-          <React.Fragment key={i}>
-            {cards.map((card: PlayingCardData) => (
-              <PlayingCardCard key={card.id} card={card} />
-            ))}
-          </React.Fragment>
-        ))}
-      </Grid>
-
-      <div ref={ref} className="w-full h-20 flex items-center justify-center">
-        {isFetchingNextPage ? (
-          <div>Chargement...</div>
-        ) : hasNextPage ? (
-          <div>Scrollez pour plus de cartes</div>
-        ) : (
-          <div>Plus aucune carte à charger</div>
-        )}
-      </div>
-    </>
+    <Grid cols="5" gap="4">
+      {data?.pages.map((cards, i) => (
+        <React.Fragment key={i}>
+          {cards.map((card: PlayingCardData) => (
+            <PlayingCardCard key={card.id} card={card} />
+          ))}
+        </React.Fragment>
+      ))}
+      {isFetchingNextPage && hasNextPage && <PlayingCardListSkeleton />}
+      <div ref={ref}></div>
+    </Grid>
   );
 }
