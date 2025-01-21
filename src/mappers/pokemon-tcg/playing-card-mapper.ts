@@ -1,9 +1,13 @@
 import { PlayingCardData } from "@/types/playing-card/playing-card-type";
-import { ApiCard, PriceVariant } from "@/types/pokemon-tcg/playing-card-type";
+import {
+  ApiCard,
+  ApiCardReponse,
+  PriceVariant,
+} from "@/types/pokemon-tcg/playing-card-type";
 
 export class PlayinCardTcgMapper {
-  static mapCardData = (data: ApiCard[]): PlayingCardData[] => {
-    return data.map(
+  static mapCardData = (response: ApiCardReponse): PlayingCardData[] => {
+    return response.data.map(
       (item: ApiCard): PlayingCardData => ({
         id: item.id,
         name: item.name,
