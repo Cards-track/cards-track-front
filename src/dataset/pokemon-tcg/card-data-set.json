@@ -1,0 +1,832 @@
+{
+  "data": [
+    {
+      "id": "dp3-3",
+      "name": "Charizard",
+      "set": {
+        "id": "dp3",
+        "name": "Secret Wonders",
+        "series": "Diamond & Pearl",
+        "printedTotal": 132,
+        "total": 132,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "SW",
+        "releaseDate": "2007/11/01",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/dp3/symbol.png",
+          "logo": "https://images.pokemontcg.io/dp3/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/dp3/3.png",
+        "large": "https://images.pokemontcg.io/dp3/3_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/dp3-3",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 79.99,
+            "mid": 125.0,
+            "high": 154.1,
+            "market": 125.03,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 36.99,
+            "mid": 66.55,
+            "high": 126.16,
+            "market": 115.0,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "gym2-2",
+      "name": "Blaine's Charizard",
+      "set": {
+        "id": "gym2",
+        "name": "Gym Challenge",
+        "series": "Gym",
+        "printedTotal": 132,
+        "total": 132,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "G2",
+        "releaseDate": "2000/10/16",
+        "updatedAt": "2022/10/10 15:12:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/gym2/symbol.png",
+          "logo": "https://images.pokemontcg.io/gym2/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/gym2/2.png",
+        "large": "https://images.pokemontcg.io/gym2/2_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/gym2-2",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "unlimitedHolofoil": {
+            "low": 289.6,
+            "mid": 349.5,
+            "high": 550.0,
+            "market": 289.41,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "base6-3",
+      "name": "Charizard",
+      "set": {
+        "id": "base6",
+        "name": "Legendary Collection",
+        "series": "Other",
+        "printedTotal": 110,
+        "total": 110,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "LC",
+        "releaseDate": "2002/05/24",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/base6/symbol.png",
+          "logo": "https://images.pokemontcg.io/base6/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/base6/3.png",
+        "large": "https://images.pokemontcg.io/base6/3_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/base6-3",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 319.72,
+            "mid": 319.73,
+            "high": 365.0,
+            "market": 319.73,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 2399.0,
+            "mid": 2749.99,
+            "high": 2750.0,
+            "market": 1199.0,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "base4-4",
+      "name": "Charizard",
+      "set": {
+        "id": "base4",
+        "name": "Base Set 2",
+        "series": "Base",
+        "printedTotal": 130,
+        "total": 130,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "B2",
+        "releaseDate": "2000/02/24",
+        "updatedAt": "2022/10/10 15:12:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/base4/symbol.png",
+          "logo": "https://images.pokemontcg.io/base4/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/base4/4.png",
+        "large": "https://images.pokemontcg.io/base4/4_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/base4-4",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 175.0,
+            "mid": 253.86,
+            "high": 999.99,
+            "market": 305.21,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "pl4-1",
+      "name": "Charizard",
+      "set": {
+        "id": "pl4",
+        "name": "Arceus",
+        "series": "Platinum",
+        "printedTotal": 99,
+        "total": 111,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "AR",
+        "releaseDate": "2009/11/04",
+        "updatedAt": "2021/07/15 11:30:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/pl4/symbol.png",
+          "logo": "https://images.pokemontcg.io/pl4/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/pl4/1.png",
+        "large": "https://images.pokemontcg.io/pl4/1_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/pl4-1",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 21.38,
+            "mid": 40.75,
+            "high": 179.0,
+            "market": 40.71,
+            "directLow": 38.99
+          },
+          "reverseHolofoil": {
+            "low": 25.19,
+            "mid": 48.79,
+            "high": 74.99,
+            "market": 53.33,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "det1-5",
+      "name": "Charizard",
+      "set": {
+        "id": "det1",
+        "name": "Detective Pikachu",
+        "series": "Sun & Moon",
+        "printedTotal": 18,
+        "total": 18,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "DET",
+        "releaseDate": "2019/04/05",
+        "updatedAt": "2021/09/01 05:37:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/det1/symbol.png",
+          "logo": "https://images.pokemontcg.io/det1/logo.png"
+        }
+      },
+      "rarity": "Rare Ultra",
+      "images": {
+        "small": "https://images.pokemontcg.io/det1/5.png",
+        "large": "https://images.pokemontcg.io/det1/5_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/det1-5",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 3.99,
+            "mid": 6.0,
+            "high": 19.99,
+            "market": 5.6,
+            "directLow": 5.39
+          }
+        }
+      }
+    },
+    {
+      "id": "sm75-3",
+      "name": "Charizard",
+      "set": {
+        "id": "sm75",
+        "name": "Dragon Majesty",
+        "series": "Sun & Moon",
+        "printedTotal": 70,
+        "total": 80,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "DRM",
+        "releaseDate": "2018/09/07",
+        "updatedAt": "2018/10/01 21:54:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm75/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm75/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/sm75/3.png",
+        "large": "https://images.pokemontcg.io/sm75/3_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm75-3",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "reverseHolofoil": {
+            "low": 6.67,
+            "mid": 10.99,
+            "high": 89.0,
+            "market": 10.92,
+            "directLow": 6.67
+          },
+          "holofoil": {
+            "low": 3.86,
+            "mid": 5.0,
+            "high": 11.11,
+            "market": 4.92,
+            "directLow": 6.97
+          }
+        }
+      }
+    },
+    {
+      "id": "ex14-4",
+      "name": "Charizard δ",
+      "set": {
+        "id": "ex14",
+        "name": "Crystal Guardians",
+        "series": "EX",
+        "printedTotal": 100,
+        "total": 100,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "CG",
+        "releaseDate": "2006/08/01",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ex14/symbol.png",
+          "logo": "https://images.pokemontcg.io/ex14/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/ex14/4.png",
+        "large": "https://images.pokemontcg.io/ex14/4_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ex14-4",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 239.96,
+            "mid": 335.29,
+            "high": 499.99,
+            "market": 306.03,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 395.99,
+            "mid": 479.0,
+            "high": 592.97,
+            "market": 499.99,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "base1-4",
+      "name": "Charizard",
+      "set": {
+        "id": "base1",
+        "name": "Base",
+        "series": "Base",
+        "printedTotal": 102,
+        "total": 102,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "BS",
+        "releaseDate": "1999/01/09",
+        "updatedAt": "2022/10/10 15:12:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/base1/symbol.png",
+          "logo": "https://images.pokemontcg.io/base1/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/base1/4.png",
+        "large": "https://images.pokemontcg.io/base1/4_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/base1-4",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 270.0,
+            "mid": 399.99,
+            "high": 1249.99,
+            "market": 442.48,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "base5-4",
+      "name": "Dark Charizard",
+      "set": {
+        "id": "base5",
+        "name": "Team Rocket",
+        "series": "Base",
+        "printedTotal": 82,
+        "total": 83,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "TR",
+        "releaseDate": "2000/04/24",
+        "updatedAt": "2020/08/14 09:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/base5/symbol.png",
+          "logo": "https://images.pokemontcg.io/base5/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/base5/4.png",
+        "large": "https://images.pokemontcg.io/base5/4_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/base5-4",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "1stEditionHolofoil": {
+            "low": 224.17,
+            "mid": 1300.73,
+            "high": 1999.99,
+            "market": 47.0,
+            "directLow": null
+          },
+          "unlimitedHolofoil": {
+            "low": 170.0,
+            "mid": 207.5,
+            "high": 400.0,
+            "market": 161.0,
+            "directLow": 107.99
+          }
+        }
+      }
+    },
+    {
+      "id": "sm115-9",
+      "name": "Charizard-GX",
+      "set": {
+        "id": "sm115",
+        "name": "Hidden Fates",
+        "series": "Sun & Moon",
+        "printedTotal": 68,
+        "total": 69,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "HIF",
+        "releaseDate": "2019/08/23",
+        "updatedAt": "2021/09/01 05:37:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm115/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm115/logo.png"
+        }
+      },
+      "rarity": "Rare Holo GX",
+      "images": {
+        "small": "https://images.pokemontcg.io/sm115/9.png",
+        "large": "https://images.pokemontcg.io/sm115/9_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm115-9",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 4.39,
+            "mid": 6.42,
+            "high": 19.95,
+            "market": 5.39,
+            "directLow": 7.74
+          }
+        }
+      }
+    },
+    {
+      "id": "xy2-11",
+      "name": "Charizard-EX",
+      "set": {
+        "id": "xy2",
+        "name": "Flashfire",
+        "series": "XY",
+        "printedTotal": 106,
+        "total": 110,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "FLF",
+        "releaseDate": "2014/05/07",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy2/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy2/logo.png"
+        }
+      },
+      "rarity": "Rare Holo EX",
+      "images": {
+        "small": "https://images.pokemontcg.io/xy2/11.png",
+        "large": "https://images.pokemontcg.io/xy2/11_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy2-11",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 4.31,
+            "mid": 6.99,
+            "high": 25.0,
+            "market": 6.97,
+            "directLow": 10.47
+          }
+        }
+      }
+    },
+    {
+      "id": "xy2-13",
+      "name": "M Charizard-EX",
+      "set": {
+        "id": "xy2",
+        "name": "Flashfire",
+        "series": "XY",
+        "printedTotal": 106,
+        "total": 110,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "FLF",
+        "releaseDate": "2014/05/07",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy2/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy2/logo.png"
+        }
+      },
+      "rarity": "Rare Holo EX",
+      "images": {
+        "small": "https://images.pokemontcg.io/xy2/13.png",
+        "large": "https://images.pokemontcg.io/xy2/13_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy2-13",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 31.62,
+            "mid": 42.54,
+            "high": 65.35,
+            "market": 30.11,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "xy2-12",
+      "name": "Charizard-EX",
+      "set": {
+        "id": "xy2",
+        "name": "Flashfire",
+        "series": "XY",
+        "printedTotal": 106,
+        "total": 110,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "FLF",
+        "releaseDate": "2014/05/07",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy2/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy2/logo.png"
+        }
+      },
+      "rarity": "Rare Holo EX",
+      "images": {
+        "small": "https://images.pokemontcg.io/xy2/12.png",
+        "large": "https://images.pokemontcg.io/xy2/12_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy2-12",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 6.5,
+            "mid": 9.03,
+            "high": 12.99,
+            "market": 9.08,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "sm9-14",
+      "name": "Charizard",
+      "set": {
+        "id": "sm9",
+        "name": "Team Up",
+        "series": "Sun & Moon",
+        "printedTotal": 181,
+        "total": 198,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "TEU",
+        "releaseDate": "2019/02/01",
+        "updatedAt": "2021/09/01 05:37:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/sm9/symbol.png",
+          "logo": "https://images.pokemontcg.io/sm9/logo.png"
+        }
+      },
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sm9/14.png",
+        "large": "https://images.pokemontcg.io/sm9/14_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/sm9-14",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "normal": {
+            "low": 4.49,
+            "mid": 6.73,
+            "high": 13.79,
+            "market": 6.62,
+            "directLow": 8.97
+          },
+          "reverseHolofoil": {
+            "low": 6.99,
+            "mid": 9.5,
+            "high": 11.99,
+            "market": 9.9,
+            "directLow": 8.75
+          }
+        }
+      }
+    },
+    {
+      "id": "ex16-6",
+      "name": "Charizard",
+      "set": {
+        "id": "ex16",
+        "name": "Power Keepers",
+        "series": "EX",
+        "printedTotal": 108,
+        "total": 108,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "PK",
+        "releaseDate": "2007/02/02",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ex16/symbol.png",
+          "logo": "https://images.pokemontcg.io/ex16/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/ex16/6.png",
+        "large": "https://images.pokemontcg.io/ex16/6_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ex16-6",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 124.99,
+            "mid": 167.0,
+            "high": 275.0,
+            "market": 190.47,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 121.2,
+            "mid": 184.99,
+            "high": 225.0,
+            "market": 167.92,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "bw11-19",
+      "name": "Charizard",
+      "set": {
+        "id": "bw11",
+        "name": "Legendary Treasures",
+        "series": "Black & White",
+        "printedTotal": 113,
+        "total": 140,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "LTR",
+        "releaseDate": "2013/11/06",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/bw11/symbol.png",
+          "logo": "https://images.pokemontcg.io/bw11/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/bw11/19.png",
+        "large": "https://images.pokemontcg.io/bw11/19_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/bw11-19",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 16.9,
+            "mid": 29.04,
+            "high": 43.99,
+            "market": 31.12,
+            "directLow": 27.97
+          },
+          "reverseHolofoil": {
+            "low": 24.99,
+            "mid": 44.23,
+            "high": 76.13,
+            "market": 44.46,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "ecard1-6",
+      "name": "Charizard",
+      "set": {
+        "id": "ecard1",
+        "name": "Expedition Base Set",
+        "series": "E-Card",
+        "printedTotal": 165,
+        "total": 165,
+        "legalities": { "unlimited": "Legal" },
+        "ptcgoCode": "EX",
+        "releaseDate": "2002/09/15",
+        "updatedAt": "2022/10/10 15:12:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/ecard1/symbol.png",
+          "logo": "https://images.pokemontcg.io/ecard1/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/ecard1/6.png",
+        "large": "https://images.pokemontcg.io/ecard1/6_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/ecard1-6",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 239.98,
+            "mid": 296.49,
+            "high": 312.81,
+            "market": 704.97,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 142.99,
+            "mid": 175.62,
+            "high": 252.3,
+            "market": 279.54,
+            "directLow": null
+          }
+        }
+      }
+    },
+    {
+      "id": "xy12-11",
+      "name": "Charizard",
+      "set": {
+        "id": "xy12",
+        "name": "Evolutions",
+        "series": "XY",
+        "printedTotal": 108,
+        "total": 113,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "EVO",
+        "releaseDate": "2016/11/02",
+        "updatedAt": "2020/09/25 10:09:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/xy12/symbol.png",
+          "logo": "https://images.pokemontcg.io/xy12/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/xy12/11.png",
+        "large": "https://images.pokemontcg.io/xy12/11_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/xy12-11",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 41.95,
+            "mid": 57.7,
+            "high": 10000.0,
+            "market": 58.23,
+            "directLow": 45.6
+          },
+          "reverseHolofoil": {
+            "low": 38.16,
+            "mid": 60.0,
+            "high": 179.0,
+            "market": 47.0,
+            "directLow": 30.0
+          }
+        }
+      }
+    },
+    {
+      "id": "bw7-20",
+      "name": "Charizard",
+      "set": {
+        "id": "bw7",
+        "name": "Boundaries Crossed",
+        "series": "Black & White",
+        "printedTotal": 149,
+        "total": 153,
+        "legalities": { "unlimited": "Legal", "expanded": "Legal" },
+        "ptcgoCode": "BCR",
+        "releaseDate": "2012/11/07",
+        "updatedAt": "2018/03/04 10:35:00",
+        "images": {
+          "symbol": "https://images.pokemontcg.io/bw7/symbol.png",
+          "logo": "https://images.pokemontcg.io/bw7/logo.png"
+        }
+      },
+      "rarity": "Rare Holo",
+      "images": {
+        "small": "https://images.pokemontcg.io/bw7/20.png",
+        "large": "https://images.pokemontcg.io/bw7/20_hires.png"
+      },
+      "tcgplayer": {
+        "url": "https://prices.pokemontcg.io/tcgplayer/bw7-20",
+        "updatedAt": "2025/01/21",
+        "prices": {
+          "holofoil": {
+            "low": 14.37,
+            "mid": 22.12,
+            "high": 39.99,
+            "market": 25.05,
+            "directLow": null
+          },
+          "reverseHolofoil": {
+            "low": 19.79,
+            "mid": 19.99,
+            "high": 52.25,
+            "market": 28.92,
+            "directLow": null
+          }
+        }
+      }
+    }
+  ],
+  "page": 1,
+  "pageSize": 20,
+  "count": 20,
+  "totalCount": 101
+}
