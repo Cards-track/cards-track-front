@@ -6,7 +6,7 @@ import { ApiCardReponse } from "@/types/pokemon-tcg/playing-card-type";
 export class PokemonTcgService {
   static async fetchCards({ pageParam = 1 }): Promise<ApiCardReponse> {
     const response = await fetch(
-      `${config.pokemonTcg.baseUrl}/cards?q=name:charizard&pageSize=10&page=${pageParam}&select=id,name,rarity,set,tcgplayer,images`,
+      `${config.pokemonTcg.baseUrl}/cards?pageSize=10&page=${pageParam}&select=id,name,rarity,set,tcgplayer,images`,
       {
         headers: {
           "X-Api-Key": config.pokemonTcg.apiKey ?? "",
