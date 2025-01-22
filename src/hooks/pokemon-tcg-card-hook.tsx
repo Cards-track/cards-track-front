@@ -5,12 +5,17 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { PokemonTcgService } from "@/services/api-services/pokemon-tcg-service";
 import { PlayinCardTcgMapper } from "@/mappers/pokemon-tcg/playing-card-mapper";
+import { useSearchParams } from "next/navigation";
 
 export function useInfiniteTcgCards() {
   const { ref, inView } = useInView({
     threshold: 0.5,
     rootMargin: "0px 0px -0px 0px",
   });
+
+  const searchParams = useSearchParams();
+  const nameParam = searchParams.get("name") || "";
+  // Recupérer le query params de l'url actuel name si il exist et le passé à la requête fetch dans le deuxième argument
 
   const {
     data,
@@ -20,8 +25,9 @@ export function useInfiniteTcgCards() {
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ["cards"],
-    queryFn: PokemonTcgService.fetchCards,
+    queryKey: ["cards", nameParam],
+    queryFn: ({ pageParam = 1 }) =>
+      PokemonTcgService.fetchCards({ pageParam }, nameParam),
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
       if (lastPage.data.length === 0) return undefined;
