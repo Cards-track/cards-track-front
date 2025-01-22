@@ -61,36 +61,59 @@ const rarityData = [
   { value: "Uncommon", label: "Uncommon" },
 ];
 
+interface Option {
+  value: string;
+  label: string;
+}
+
+// Fonction de validation des valeurs d'URL
+const validateUrlValues = (values: string[], availableOptions: Option[]) => {
+  return values.filter((value) =>
+    availableOptions.some((option) => option.value === value)
+  );
+};
+
 export default function Home() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+
   const initialName = searchParams.get("name") || "";
-  const [sets, setSets] = useState<string[]>([]);
-  const [rarities, setRarities] = useState<string[]>([]);
+  const urlSets = searchParams.get("sets")?.split("%") || [];
+  const urlRarities = searchParams.get("sets")?.split("%") || [];
+
+  // Validation des valeurs initiales
+  const initialSets = validateUrlValues(urlSets, data);
+  const initialRarities = validateUrlValues(urlRarities, rarityData);
+
+  const [sets, setSets] = useState<string[]>(initialSets);
+  const [rarities, setRarities] = useState<string[]>(initialRarities);
   const [name, setName] = useState(initialName);
+
   const handleMultiSelectSetsChange = (values: string[]) => {
     setSets(values);
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (values.length !== 0) {
+      params.set("sets", values.join("%"));
+    } else {
+      params.delete("sets");
+    }
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   const handleMultiSelectRaritiesChange = (values: string[]) => {
     setRarities(values);
+
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (values.length !== 0) {
+      params.set("rarities", values.join("%"));
+    } else {
+      params.delete("rarities");
+    }
+    router.replace(`${pathname}?${params.toString()}`);
   };
-
-  // useEffect(() => {
-  //   const params = new URLSearchParams(searchParams.toString());
-  //   if (name) {
-  //     params.set("name", name);
-  //   } else {
-  //     params.delete("name");
-  //   }
-  //   router.replace(`${pathname}?${params.toString()}`);
-  // }, [name, router, pathname, searchParams]);
-
-  // const handleInputSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = e.target.value;
-  //   setName(value);
-  // };
 
   const handleInputSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
