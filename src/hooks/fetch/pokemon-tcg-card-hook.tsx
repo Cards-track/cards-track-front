@@ -15,6 +15,8 @@ export function useInfiniteTcgCards() {
 
   const searchParams = useSearchParams();
   const nameParam = searchParams.get("name") || "";
+  const setsParam = searchParams.get("sets")?.split("%") || [];
+  const raritiesParam = searchParams.get("rarities")?.split("%") || [];
 
   const {
     data,
@@ -24,9 +26,14 @@ export function useInfiniteTcgCards() {
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ["cards", nameParam],
+    queryKey: ["cards", nameParam, setsParam, raritiesParam],
     queryFn: ({ pageParam = 1 }) =>
-      PokemonTcgService.fetchCards({ pageParam }, nameParam),
+      PokemonTcgService.fetchCards({
+        page: pageParam,
+        name: nameParam,
+        sets: setsParam,
+        rarities: raritiesParam,
+      }),
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
       if (lastPage.data.length === 0) return undefined;
