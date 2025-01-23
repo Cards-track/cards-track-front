@@ -15,7 +15,6 @@ export function useInfiniteTcgCards() {
 
   const searchParams = useSearchParams();
   const nameParam = searchParams.get("name") || "";
-  // Recupérer le query params de l'url actuel name si il exist et le passé à la requête fetch dans le deuxième argument
 
   const {
     data,

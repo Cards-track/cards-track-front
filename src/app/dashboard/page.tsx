@@ -3,10 +3,11 @@
 import { MultiSelect } from "@/components/combobox/multi-select-combobox";
 import { PlayingCardList } from "@/components/lists/playing-card-list";
 import { Input } from "@/components/ui/input";
+import { useDebounce } from "@/hooks/debouce-hook";
 
 import { Search } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 const data = [
   { value: "base1", label: "1999 - Base" },
@@ -90,6 +91,23 @@ export default function Home() {
   const [rarities, setRarities] = useState<string[]>(initialRarities);
   const [name, setName] = useState(initialName);
 
+  const updateSearchParams = useCallback(
+    (value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+
+      if (value) {
+        params.set("name", value);
+      } else {
+        params.delete("name");
+      }
+
+      router.replace(`${pathname}?${params.toString()}`);
+    },
+    [pathname, router, searchParams]
+  );
+
+  const debouncedUpdateSearchParams = useDebounce(updateSearchParams, 300);
+
   const handleMultiSelectSetsChange = (values: string[]) => {
     setSets(values);
     const params = new URLSearchParams(searchParams.toString());
@@ -118,16 +136,7 @@ export default function Home() {
   const handleInputSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setName(value);
-
-    const params = new URLSearchParams(searchParams.toString());
-
-    if (value) {
-      params.set("name", value);
-    } else {
-      params.delete("name");
-    }
-
-    router.replace(`${pathname}?${params.toString()}`);
+    debouncedUpdateSearchParams(value);
   };
 
   return (
@@ -137,7 +146,7 @@ export default function Home() {
         <Input
           type="search"
           placeholder="Search a card..."
-          onChange={(value) => handleInputSearchChange(value)}
+          onChange={handleInputSearchChange}
           value={name}
         />
         <MultiSelect
