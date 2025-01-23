@@ -4,7 +4,7 @@ import * as React from "react";
 import { PlayingCardCard } from "../cards/playing-card-card";
 import { PlayingCardData } from "@/types/playing-card/playing-card-type";
 import { PlayingCardListSkeleton } from "../skeletons/lists/playing-card-list-skeleton";
-import { useInfiniteTcgCards } from "@/hooks/pokemon-tcg-card-hook";
+import { useInfiniteTcgCards } from "@/hooks/fetch/pokemon-tcg-card-hook";
 import { Grid } from "../layout/grid/grid";
 
 export function PlayingCardList() {
