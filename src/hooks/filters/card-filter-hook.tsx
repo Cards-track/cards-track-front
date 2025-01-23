@@ -2,6 +2,7 @@ import { Option } from "@/types/common/option-type";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import { useDebounce } from "../debouce-hook";
+import { validateUrlMultiOptionsParams } from "@/utils/url-utils";
 
 export const useCardFilters = (
   availableSets: Option[],
@@ -11,23 +12,18 @@ export const useCardFilters = (
   const router = useRouter();
   const pathname = usePathname();
 
-  const validateUrlValues = (values: string[], options: Option[]) => {
-    return values.filter((value) =>
-      options.some((option) => option.value === value)
-    );
-  };
-
-  const initialName = searchParams.get("name") || "";
+  const urllName = searchParams.get("name") || "";
   const urlSets = searchParams.get("sets")?.split("%") || [];
   const urlRarities = searchParams.get("rarities")?.split("%") || [];
 
+  // Filters
   const [sets, setSets] = useState<string[]>(
-    validateUrlValues(urlSets, availableSets)
+    validateUrlMultiOptionsParams(urlSets, availableSets)
   );
   const [rarities, setRarities] = useState<string[]>(
-    validateUrlValues(urlRarities, availableRarities)
+    validateUrlMultiOptionsParams(urlRarities, availableRarities)
   );
-  const [name, setName] = useState(initialName);
+  const [name, setName] = useState(urllName);
 
   const updateUrlParams = useCallback(
     (params: URLSearchParams) => {
@@ -36,6 +32,7 @@ export const useCardFilters = (
     [pathname, router]
   );
 
+  // Handler
   const handleNameChange = useDebounce((value: string) => {
     const params = new URLSearchParams(searchParams.toString());
     if (value) {
