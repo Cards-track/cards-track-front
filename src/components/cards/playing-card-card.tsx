@@ -18,6 +18,9 @@ export type PlayingCardCardProps = {
 };
 
 export function PlayingCardCard({ card }: PlayingCardCardProps) {
+  const [imageError, setImageError] = React.useState(false);
+  const fallbackImageUrl = "/images/card-placeholder-small.png"; // À créer
+
   return (
     <Card>
       <CardHeader>
@@ -26,11 +29,13 @@ export function PlayingCardCard({ card }: PlayingCardCardProps) {
       </CardHeader>
       <CardContent className="flex justify-center">
         <Image
-          src={card.images.small}
+          src={imageError ? fallbackImageUrl : card.images.small}
           alt={card.name}
           width={200}
           height={280}
+          onError={() => setImageError(true)}
           className="rounded-lg object-contain"
+          priority={false}
         />
       </CardContent>
       <CardFooter>
