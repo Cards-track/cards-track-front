@@ -2,7 +2,10 @@
 
 import { MultiSelect } from "@/components/combobox/multi-select-combobox";
 import { Input } from "@/components/ui/input";
-import { useFetchTcgPlayerOptions } from "@/hooks/fetch/pokemon-tcg-options-hook";
+import {
+  TcgPlayerOptions,
+  useFetchTcgPlayerOptions,
+} from "@/hooks/fetch/pokemon-tcg-options-hook";
 import { useCardFilters } from "@/hooks/filters/card-filter-hook";
 
 import { Search } from "lucide-react";
@@ -61,9 +64,10 @@ const rarityData = [
 ];
 
 export default function FiltersCardHeader() {
-  const { data: sets, isLoading: setsLoading } = useFetchTcgPlayerOptions([
-    "sets",
-  ]);
+  const { data: sets, isLoading: setsLoading } = useFetchTcgPlayerOptions(
+    ["sets"],
+    TcgPlayerOptions.SETS
+  );
 
   const { filters, handlers } = useCardFilters(sets ?? data, rarityData);
 
