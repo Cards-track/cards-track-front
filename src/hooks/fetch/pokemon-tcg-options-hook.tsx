@@ -19,10 +19,10 @@ export const useFetchTcgPlayerOptions = (
     option: TcgPlayerOptions
   ): Promise<Option[]> => {
     switch (option) {
-      case "sets":
+      case TcgPlayerOptions.SETS:
         const apiSetsOptions = await PokemonTcgSetsService.fetchSetsOptions();
         return SetTcgMapper.mapSetsOptionsData(apiSetsOptions);
-      case "rarities":
+      case TcgPlayerOptions.RARITIES:
         const apiRaritiesOptions =
           await PokemonTcgRaritiesService.fetchSetsOptions();
         return SetTcgMapper.mapSetsOptionsData(apiRaritiesOptions);
