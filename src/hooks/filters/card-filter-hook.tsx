@@ -2,7 +2,11 @@ import { Option } from "@/types/common/option-type";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import { useDebounce } from "../debouce-hook";
-import { validateUrlMultiOptionsParams } from "@/utils/url-utils";
+import {
+  updateFilterParam,
+  validateUrlMultiOptionsParams,
+} from "@/utils/url-utils";
+import { PlayingCardFilterParamsEnum } from "@/types/playing-card/playing-card-filter-enum";
 
 export const useCardFilters = (
   availableSets: Option[],
@@ -34,34 +38,34 @@ export const useCardFilters = (
 
   // Handler
   const handleNameChange = useDebounce((value: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (value) {
-      params.set("name", value);
-    } else {
-      params.delete("name");
-    }
+    const urlSearchParams = new URLSearchParams(searchParams.toString());
+    const params = updateFilterParam(
+      urlSearchParams,
+      PlayingCardFilterParamsEnum.NAME,
+      value
+    );
     updateUrlParams(params);
   }, 300);
 
   const handleSetsChange = (values: string[]) => {
     setSets(values);
-    const params = new URLSearchParams(searchParams.toString());
-    if (values.length) {
-      params.set("sets", values.join("%"));
-    } else {
-      params.delete("sets");
-    }
+    const urlSearchParams = new URLSearchParams(searchParams.toString());
+    const params = updateFilterParam(
+      urlSearchParams,
+      PlayingCardFilterParamsEnum.SETS,
+      values
+    );
     updateUrlParams(params);
   };
 
   const handleRaritiesChange = (values: string[]) => {
     setRarities(values);
-    const params = new URLSearchParams(searchParams.toString());
-    if (values.length) {
-      params.set("rarities", values.join("%"));
-    } else {
-      params.delete("rarities");
-    }
+    const urlSearchParams = new URLSearchParams(searchParams.toString());
+    const params = updateFilterParam(
+      urlSearchParams,
+      PlayingCardFilterParamsEnum.RARITIES,
+      values
+    );
     updateUrlParams(params);
   };
 
