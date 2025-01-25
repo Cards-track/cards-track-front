@@ -5,6 +5,7 @@ import { Option } from "@/types/common/option-type";
 import { SetTcgMapper } from "@/mappers/pokemon-tcg/set-mapper";
 import { PokemonTcgSetsService } from "@/services/api-services/pokemon-tcg-sets-service";
 import { PokemonTcgRaritiesService } from "@/services/api-services/pokemon-tcg-rarities-service";
+import { RarityTcgMapper } from "@/mappers/pokemon-tcg/rarity-mapper";
 
 export enum TcgPlayerOptions {
   SETS = "sets",
@@ -24,8 +25,8 @@ export const useFetchTcgPlayerOptions = (
         return SetTcgMapper.mapSetsOptionsData(apiSetsOptions);
       case TcgPlayerOptions.RARITIES:
         const apiRaritiesOptions =
-          await PokemonTcgRaritiesService.fetchSetsOptions();
-        return SetTcgMapper.mapSetsOptionsData(apiRaritiesOptions);
+          await PokemonTcgRaritiesService.fetchRaritiesOptions();
+        return RarityTcgMapper.mapRaritiesOptionsData(apiRaritiesOptions);
       default:
         return [];
     }
