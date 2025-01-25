@@ -1,10 +1,7 @@
 import { config } from "@/lib/config";
 import { PlayinCardTcgMapper } from "@/mappers/pokemon-tcg/playing-card-mapper";
-import { SetTcgMapper } from "@/mappers/pokemon-tcg/set-mapper";
-import { Option } from "@/types/common/option-type";
 import { PlayingCardData } from "@/types/playing-card/playing-card-type";
 import { ApiCardReponse } from "@/types/pokemon-tcg/playing-card-type";
-import { ApiSetsOptionsReponse } from "@/types/pokemon-tcg/set-type";
 
 export interface CardFilter {
   name: string;
@@ -36,7 +33,7 @@ const buildSearchQuery = (
   return queries.join(" ");
 };
 
-export class PokemonTcgService {
+export class PokemonTcgCardsService {
   static async fetchCards({
     page = 1,
     pageSize = 12,
@@ -80,38 +77,7 @@ export class PokemonTcgService {
     }
   }
 
-  static async fetchSetsOptions(): Promise<ApiSetsOptionsReponse> {
-    try {
-      const queryParams = new URLSearchParams({
-        select: "id,name,releaseDate",
-        orderBy: "releaseDate",
-      });
-
-      const response = await fetch(
-        `${config.pokemonTcg.baseUrl}/sets?${queryParams}`,
-        {
-          headers: {
-            "X-Api-Key": config.pokemonTcg.apiKey ?? "",
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Error fetching sets options");
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error("Error fetching sets options:", error);
-      throw error;
-    }
-  }
-
   static mapCardResponse(data: ApiCardReponse): PlayingCardData[] {
     return PlayinCardTcgMapper.mapCardData(data);
-  }
-
-  static mapSetsOptionsResponse(data: ApiSetsOptionsReponse): Option[] {
-    return SetTcgMapper.mapSetsOptionsData(data);
   }
 }

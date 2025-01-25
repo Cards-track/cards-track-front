@@ -3,9 +3,9 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import { PokemonTcgService } from "@/services/api-services/pokemon-tcg-service";
 import { PlayinCardTcgMapper } from "@/mappers/pokemon-tcg/playing-card-mapper";
 import { useSearchParams } from "next/navigation";
+import { PokemonTcgCardsService } from "@/services/api-services/pokemon-tcg-cards-service";
 
 export function useInfiniteTcgCards() {
   const { ref, inView } = useInView({
@@ -28,7 +28,7 @@ export function useInfiniteTcgCards() {
   } = useInfiniteQuery({
     queryKey: ["cards", nameParam, setsParam, raritiesParam],
     queryFn: ({ pageParam = 1 }) =>
-      PokemonTcgService.fetchCards({
+      PokemonTcgCardsService.fetchCards({
         page: pageParam,
         name: nameParam,
         sets: setsParam,
