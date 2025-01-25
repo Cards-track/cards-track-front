@@ -9,7 +9,7 @@ import {
 import { useCardFilters } from "@/hooks/filters/card-filter-hook";
 
 import { Search } from "lucide-react";
-import { Skeleton } from "../ui/skeleton";
+import FiltersCardHeaderSkeleton from "../skeletons/headers/filters-card-header-skeleton";
 
 export default function FiltersCardHeader() {
   const { data: sets, isLoading: setsLoading } = useFetchTcgPlayerOptions(
@@ -29,13 +29,7 @@ export default function FiltersCardHeader() {
   };
 
   if (setsLoading || raritiesLoading) {
-    return (
-      <div className="flex items-center gap-4 rounded-lg border bg-card p-4">
-        <Skeleton className="h-9 w-4/5 rounded-md animate-pulse" />
-        <Skeleton className="h-9 w-1/5 rounded-md animate-pulse" />
-        <Skeleton className="h-9 w-1/5 rounded-md animate-pulse" />
-      </div>
-    );
+    return <FiltersCardHeaderSkeleton />;
   }
 
   return (
