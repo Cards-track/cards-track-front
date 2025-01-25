@@ -2,6 +2,7 @@
 
 import { MultiSelect } from "@/components/combobox/multi-select-combobox";
 import { Input } from "@/components/ui/input";
+import { useFetchTcgPlayerOptions } from "@/hooks/fetch/pokemon-tcg-options-hook";
 import { useCardFilters } from "@/hooks/filters/card-filter-hook";
 
 import { Search } from "lucide-react";
@@ -60,13 +61,25 @@ const rarityData = [
 ];
 
 export default function FiltersCardHeader() {
-  const { filters, handlers } = useCardFilters(data, rarityData);
+  const { data: sets, isLoading: setsLoading } = useFetchTcgPlayerOptions([
+    "sets",
+  ]);
+
+  const { filters, handlers } = useCardFilters(sets ?? data, rarityData);
 
   const handleInputSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     handlers.setName(value);
     handlers.handleNameChange(value);
   };
+
+  if (setsLoading) {
+    return (
+      <div className="flex items-center gap-4 rounded-lg border bg-card p-4">
+        Chargement...
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center gap-4 rounded-lg border bg-card p-4">
@@ -78,7 +91,7 @@ export default function FiltersCardHeader() {
         value={filters.name}
       />
       <MultiSelect
-        options={data}
+        options={sets ?? data}
         selected={filters.sets}
         onChange={handlers.handleSetsChange}
         errorMessage="No set found"

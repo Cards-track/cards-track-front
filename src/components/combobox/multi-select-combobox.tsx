@@ -64,11 +64,13 @@ export function MultiSelect({
           aria-expanded={open}
           className="w-[200px] justify-between"
         >
-          {selected.length > 0
-            ? selected.length === 1
-              ? options.find((option) => option.value === selected[0])?.label
-              : `${selected.length} éléments sélectionnés`
-            : placeholder}
+          <span className="truncate">
+            {selected.length > 0
+              ? selected.length === 1
+                ? options.find((option) => option.value === selected[0])?.label
+                : `${selected.length} éléments sélectionnés`
+              : placeholder}
+          </span>
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -76,7 +78,7 @@ export function MultiSelect({
         <Command>
           <CommandInput
             placeholder={searchPlaceholder}
-            className="h-9"
+            className="h-9 "
             value={searchValue}
             onValueChange={setSearchValue}
           />
