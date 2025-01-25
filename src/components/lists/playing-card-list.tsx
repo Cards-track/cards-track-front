@@ -17,7 +17,14 @@ export function PlayingCardList() {
         <PlayingCardListSkeleton />
       </Grid>
     );
-  if (error) return <div>Une erreur est survenue</div>;
+
+  if (!isLoading && !data?.pages[0].length)
+    return (
+      <div className="text-center text-2xl font-bold mt-8">No cards found</div>
+    );
+
+  if (error) return <div>An error occured</div>;
+
   return (
     <Grid cols={1} colsSm={2} colsMd={2} colsLg={4} gap={4}>
       {data?.pages.map((cards, i) => (
