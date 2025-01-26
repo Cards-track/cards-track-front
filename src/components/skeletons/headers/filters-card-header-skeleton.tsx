@@ -8,6 +8,7 @@ export default function FiltersCardHeaderSkeleton() {
       <Skeleton className="h-9 w-4/5 rounded-md animate-pulse" />
       <Skeleton className="h-9 w-1/5 rounded-md animate-pulse" />
       <Skeleton className="h-9 w-1/5 rounded-md animate-pulse" />
+      <Skeleton className="h-9 w-1/5 rounded-md animate-pulse" />
     </div>
   );
 }

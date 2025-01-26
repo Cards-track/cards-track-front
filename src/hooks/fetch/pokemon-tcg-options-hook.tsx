@@ -6,10 +6,13 @@ import { SetTcgMapper } from "@/mappers/pokemon-tcg/set-mapper";
 import { PokemonTcgSetsService } from "@/services/api-services/pokemon-tcg-sets-service";
 import { PokemonTcgRaritiesService } from "@/services/api-services/pokemon-tcg-rarities-service";
 import { RarityTcgMapper } from "@/mappers/pokemon-tcg/rarity-mapper";
+import { PokemonTcgTypesService } from "@/services/api-services/pokemon-tcg-types-service";
+import { TypeTcgMapper } from "@/mappers/pokemon-tcg/type-mapper";
 
 export enum TcgPlayerOptions {
   SETS = "sets",
   RARITIES = "rarities",
+  TYPES = "types",
 }
 
 export const useFetchTcgPlayerOptions = (
@@ -27,6 +30,10 @@ export const useFetchTcgPlayerOptions = (
         const apiRaritiesOptions =
           await PokemonTcgRaritiesService.fetchRaritiesOptions();
         return RarityTcgMapper.mapRaritiesOptionsData(apiRaritiesOptions);
+      case TcgPlayerOptions.TYPES:
+        const apiTypesOptions =
+          await PokemonTcgTypesService.fetchTypesOptions();
+        return TypeTcgMapper.mapTypesOptionsData(apiTypesOptions);
       default:
         return [];
     }
