@@ -5,6 +5,11 @@ export const validateUrlMultiOptionsParams = (
   values: string[],
   options: Option[]
 ) => {
+  console.log("VALUES URL MUTILPLE OPTIONS", values);
+  console.log(
+    "VALUES URL MUTILPLE OPTIONS FILTER",
+    values.filter((value) => options.some((option) => option.value === value))
+  );
   return values.filter((value) =>
     options.some((option) => option.value === value)
   );

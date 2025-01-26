@@ -31,15 +31,17 @@ export default function FiltersCardHeader() {
     types ?? []
   );
 
+  const isLoading = setsLoading || raritiesLoading || typesLoading;
+
+  if (isLoading) {
+    return <FiltersCardHeaderSkeleton />;
+  }
+
   const handleInputSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     handlers.setName(value);
     handlers.handleNameChange(value);
   };
-
-  if (setsLoading || raritiesLoading || typesLoading) {
-    return <FiltersCardHeaderSkeleton />;
-  }
 
   return (
     <div className="flex items-center gap-4 rounded-lg border bg-card p-4">

@@ -1,6 +1,6 @@
 import { Option } from "@/types/common/option-type";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useDebounce } from "../debouce-hook";
 import {
   updateFilterParam,
@@ -17,22 +17,52 @@ export const useCardFilters = (
   const router = useRouter();
   const pathname = usePathname();
 
-  const urllName = searchParams.get("name") || "";
   const urlSets = searchParams.get("sets")?.split("%") || [];
   const urlRarities = searchParams.get("rarities")?.split("%") || [];
   const urlTypes = searchParams.get("types")?.split("%") || [];
 
-  // Filters
-  const [sets, setSets] = useState<string[]>(
-    validateUrlMultiOptionsParams(urlSets, availableSets)
-  );
-  const [rarities, setRarities] = useState<string[]>(
-    validateUrlMultiOptionsParams(urlRarities, availableRarities)
-  );
-  const [types, setTypes] = useState<string[]>(
-    validateUrlMultiOptionsParams(urlTypes, availableTypes)
-  );
-  const [name, setName] = useState(urllName);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [sets, setSets] = useState<string[]>(urlSets);
+  const [rarities, setRarities] = useState<string[]>(urlRarities);
+  const [types, setTypes] = useState<string[]>(urlTypes);
+  const [name, setName] = useState("");
+
+  // Un seul useEffect pour l'initialisation
+  useEffect(() => {
+    const areOptionsLoaded =
+      availableSets.length > 0 &&
+      availableRarities.length > 0 &&
+      availableTypes.length > 0;
+
+    if (areOptionsLoaded && !isInitialized) {
+      setSets(
+        validateUrlMultiOptionsParams(
+          searchParams.get("sets")?.split("%") || [],
+          availableSets
+        )
+      );
+      setRarities(
+        validateUrlMultiOptionsParams(
+          searchParams.get("rarities")?.split("%") || [],
+          availableRarities
+        )
+      );
+      setTypes(
+        validateUrlMultiOptionsParams(
+          searchParams.get("types")?.split("%") || [],
+          availableTypes
+        )
+      );
+      setName(searchParams.get("name") || "");
+      setIsInitialized(true);
+    }
+  }, [
+    availableSets,
+    availableRarities,
+    availableTypes,
+    searchParams,
+    isInitialized,
+  ]);
 
   const updateUrlParams = useCallback(
     (params: URLSearchParams) => {
