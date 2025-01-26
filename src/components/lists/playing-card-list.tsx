@@ -6,6 +6,7 @@ import { PlayingCardData } from "@/types/playing-card/playing-card-type";
 import { PlayingCardListSkeleton } from "../skeletons/lists/playing-card-list-skeleton";
 import { useInfiniteTcgCards } from "@/hooks/fetch/pokemon-tcg-cards-hook";
 import { Grid } from "../layout/grid/grid";
+import Link from "next/link";
 
 export function PlayingCardList() {
   const { data, isLoading, error, ref, hasNextPage, isFetchingNextPage } =
@@ -30,7 +31,9 @@ export function PlayingCardList() {
       {data?.pages.map((cards, i) => (
         <React.Fragment key={i}>
           {cards.map((card: PlayingCardData) => (
-            <PlayingCardCard key={card.id} card={card} />
+            <Link href={`/dashboard/cards/${card.id}`} key={card.id}>
+              <PlayingCardCard card={card} />
+            </Link>
           ))}
         </React.Fragment>
       ))}
