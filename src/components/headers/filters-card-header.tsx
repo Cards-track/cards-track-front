@@ -20,7 +20,16 @@ export default function FiltersCardHeader() {
   const { data: rarities, isLoading: raritiesLoading } =
     useFetchTcgPlayerOptions(["rarities"], TcgPlayerOptions.RARITIES);
 
-  const { filters, handlers } = useCardFilters(sets ?? [], rarities ?? []);
+  const { data: types, isLoading: typesLoading } = useFetchTcgPlayerOptions(
+    ["types"],
+    TcgPlayerOptions.TYPES
+  );
+
+  const { filters, handlers } = useCardFilters(
+    sets ?? [],
+    rarities ?? [],
+    types ?? []
+  );
 
   const handleInputSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -28,7 +37,7 @@ export default function FiltersCardHeader() {
     handlers.handleNameChange(value);
   };
 
-  if (setsLoading || raritiesLoading) {
+  if (setsLoading || raritiesLoading || typesLoading) {
     return <FiltersCardHeaderSkeleton />;
   }
 
@@ -59,6 +68,16 @@ export default function FiltersCardHeader() {
           errorMessage="No set found"
           placeholder="Select a rarity..."
           searchPlaceholder="Search a rarity..."
+        />
+      )}
+      {types && (
+        <MultiSelect
+          options={types}
+          selected={filters.types}
+          onChange={handlers.handleTypesChange}
+          errorMessage="No set found"
+          placeholder="Select a type..."
+          searchPlaceholder="Search a type..."
         />
       )}
     </div>

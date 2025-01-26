@@ -3,12 +3,6 @@ import { PlayinCardTcgMapper } from "@/mappers/pokemon-tcg/playing-card-mapper";
 import { PlayingCardData } from "@/types/playing-card/playing-card-type";
 import { ApiCardReponse } from "@/types/pokemon-tcg/playing-card-type";
 
-export interface CardFilter {
-  name: string;
-  sets: string[];
-  rarities: string[];
-}
-
 // Ajout des fonctions utilitaires
 const buildOrQuery = (field: string, values: string[]): string => {
   if (!values.length) return "";
@@ -18,7 +12,8 @@ const buildOrQuery = (field: string, values: string[]): string => {
 const buildSearchQuery = (
   name: string = "",
   sets: string[] = [],
-  rarities: string[] = []
+  rarities: string[] = [],
+  types: string[] = []
 ): string => {
   const queries: string[] = [];
 
@@ -30,6 +25,9 @@ const buildSearchQuery = (
   const raritiesQuery = buildOrQuery("rarity", rarities);
   if (raritiesQuery) queries.push(raritiesQuery);
 
+  const typesQuery = buildOrQuery("types", types);
+  if (typesQuery) queries.push(typesQuery);
+
   return queries.join(" ");
 };
 
@@ -40,15 +38,17 @@ export class PokemonTcgCardsService {
     name = "",
     sets = [],
     rarities = [],
+    types = [],
   }: {
     page?: number;
     pageSize?: number;
     name?: string;
     sets?: string[];
     rarities?: string[];
+    types?: string[];
   }): Promise<ApiCardReponse> {
     try {
-      const searchQuery = buildSearchQuery(name, sets, rarities);
+      const searchQuery = buildSearchQuery(name, sets, rarities, types);
 
       const queryParams = new URLSearchParams({
         page: page.toString(),

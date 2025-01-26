@@ -10,7 +10,8 @@ import { PlayingCardFilterParamsEnum } from "@/types/playing-card/playing-card-f
 
 export const useCardFilters = (
   availableSets: Option[],
-  availableRarities: Option[]
+  availableRarities: Option[],
+  availableTypes: Option[]
 ) => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -19,6 +20,7 @@ export const useCardFilters = (
   const urllName = searchParams.get("name") || "";
   const urlSets = searchParams.get("sets")?.split("%") || [];
   const urlRarities = searchParams.get("rarities")?.split("%") || [];
+  const urlTypes = searchParams.get("types")?.split("%") || [];
 
   // Filters
   const [sets, setSets] = useState<string[]>(
@@ -26,6 +28,9 @@ export const useCardFilters = (
   );
   const [rarities, setRarities] = useState<string[]>(
     validateUrlMultiOptionsParams(urlRarities, availableRarities)
+  );
+  const [types, setTypes] = useState<string[]>(
+    validateUrlMultiOptionsParams(urlTypes, availableTypes)
   );
   const [name, setName] = useState(urllName);
 
@@ -69,12 +74,24 @@ export const useCardFilters = (
     updateUrlParams(params);
   };
 
+  const handleTypesChange = (values: string[]) => {
+    setTypes(values);
+    const urlSearchParams = new URLSearchParams(searchParams.toString());
+    const params = updateFilterParam(
+      urlSearchParams,
+      PlayingCardFilterParamsEnum.TYPES,
+      values
+    );
+    updateUrlParams(params);
+  };
+
   return {
-    filters: { name, sets, rarities },
+    filters: { name, sets, rarities, types },
     handlers: {
       handleNameChange,
       handleSetsChange,
       handleRaritiesChange,
+      handleTypesChange,
       setName,
     },
   };

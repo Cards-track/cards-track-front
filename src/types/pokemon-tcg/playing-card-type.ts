@@ -52,4 +52,11 @@ interface ApiCardReponse {
   totalCount: number;
 }
 
-export type { ApiCard, ApiCardReponse, PriceVariant };
+interface CardFilter {
+  name: string;
+  sets: string[];
+  rarities: string[];
+  types: string[];
+}
+
+export type { ApiCard, ApiCardReponse, PriceVariant, CardFilter };
