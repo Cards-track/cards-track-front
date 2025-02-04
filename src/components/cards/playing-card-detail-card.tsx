@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { PokemonTcgCardsService } from "@/services/api-services/pokemon-tcg-cards-service";
-import { PlayingCardDetailCardSkeleton } from "../skeletons/lists/cards/playing-card-card-detail-skeleton";
+import { PlayingCardDetailCardSkeleton } from "../skeletons/lists/cards/playing-card-detail-card-skeleton";
 
 export type PlayingCardDetailCardProps = {
   cardId: string;
