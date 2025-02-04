@@ -12,17 +12,17 @@ import {
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { PokemonTcgCardsService } from "@/services/api-services/pokemon-tcg-cards-service";
-import { useParams } from "next/navigation";
 import { PlayingCardDetailCardSkeleton } from "../skeletons/lists/cards/playing-card-card-detail-skeleton";
 
 export type PlayingCardDetailCardProps = {
+  cardId: string;
   className: string;
 };
 
 export function PlayingCardDetailCard({
+  cardId,
   className,
 }: PlayingCardDetailCardProps) {
-  const { id } = useParams();
   const [imageError, setImageError] = React.useState(false);
   const fallbackImageUrl = "/images/card-placeholder-small.png";
 
@@ -31,11 +31,9 @@ export function PlayingCardDetailCard({
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["card-detail", id],
+    queryKey: ["card-detail", cardId],
     queryFn: async () => {
-      const response = await PokemonTcgCardsService.fetchCardDetails(
-        id as string
-      );
+      const response = await PokemonTcgCardsService.fetchCardDetails(cardId);
       return PokemonTcgCardsService.mapCardDetailResponse(response);
     },
   });

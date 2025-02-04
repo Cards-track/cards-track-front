@@ -58,12 +58,17 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function PriceCardChart({ className }: { className?: string }) {
+interface PriceCardChartProps {
+  className?: string;
+}
+
+export function PriceCardChart({ className }: PriceCardChartProps) {
   const lastTrendingPrice = useMemo(() => {
     const lastPrice = chartData[chartData.length - 1].price;
     const beforeLastPrice = chartData[chartData.length - 2].price;
     return ((lastPrice - beforeLastPrice) / beforeLastPrice) * 100;
   }, []);
+
   return (
     <Card className={className}>
       <CardHeader>
