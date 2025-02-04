@@ -5,7 +5,6 @@ import {
   PlayingCardDetailData,
 } from "@/types/playing-card/playing-card-type";
 import {
-  ApiCard,
   ApiCardDetailReponse,
   ApiCardReponse,
 } from "@/types/pokemon-tcg/playing-card-type";
@@ -84,7 +83,7 @@ export class PokemonTcgCardsService {
     }
   }
 
-  static async fetchCardDetails(id: string): Promise<ApiCard> {
+  static async fetchCardDetails(id: string): Promise<ApiCardDetailReponse> {
     try {
       const response = await fetch(`${config.pokemonTcg.baseUrl}/cards/${id}`, {
         headers: {
