@@ -3,8 +3,7 @@
 import { PlayingCardDetailCard } from "@/components/cards/playing-card-detail-card";
 import { PriceCardChart } from "@/components/charts/price-card-chart";
 import { Grid } from "@/components/layout/grid/grid";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChartNoAxesColumnIcon } from "lucide-react";
+import { PlayingCardDetailKpiList } from "@/components/lists/playing-card-detail-kpi-list";
 // import { useParams } from "next/navigation";
 import React from "react";
 
@@ -120,37 +119,6 @@ const card = {
   },
 };
 
-const kpis = [
-  {
-    id: 1,
-    title: "Low price",
-    value: 14.75,
-    type: "price",
-    icon: <ChartNoAxesColumnIcon size={16} />,
-  },
-  {
-    id: 2,
-    title: "Low price",
-    value: 14.75,
-    type: "price",
-    icon: <ChartNoAxesColumnIcon size={16} />,
-  },
-  {
-    id: 3,
-    title: "Low price",
-    value: 14.75,
-    type: "price",
-    icon: <ChartNoAxesColumnIcon size={16} />,
-  },
-  {
-    id: 4,
-    title: "Low price",
-    value: 14.75,
-    type: "price",
-    icon: <ChartNoAxesColumnIcon size={16} />,
-  },
-];
-
 export default function CardDetailPage() {
   // const { id } = useParams();
   // if (isLoading) return <div>Chargement...</div>;
@@ -171,33 +139,7 @@ export default function CardDetailPage() {
         className="col-span-full lg:col-span-2 flex flex-col justify-between"
       />
       <PriceCardChart className="col-span-full lg:col-span-3 flex flex-col justify-between" />
-      <Grid
-        className="col-span-5"
-        cols={1}
-        colsSm={2}
-        colsMd={2}
-        colsLg={4}
-        gap={4}
-      >
-        {kpis.map((kpi) => (
-          <Card key={kpi.id} className="col-span-1">
-            <CardHeader className="pb-2">
-              <CardTitle className="flex align-middle justify-between">
-                {kpi.title}
-                {kpi.icon}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col">
-                <span className="font-bold text-3xl">${kpi.value}</span>
-                <span className="leading-none text-muted-foreground">
-                  +20.1% from last month
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </Grid>
+      <PlayingCardDetailKpiList className="col-span-5" />
     </Grid>
   );
 }
