@@ -54,8 +54,8 @@ export function PlayingCardDetailCard({
             <Image
               src={imageError ? fallbackImageUrl : card.images.large}
               alt={card.name}
-              width={200 * 1.5}
-              height={280 * 1.5}
+              width={300}
+              height={420}
               onError={() => setImageError(true)}
               className="rounded-lg object-contain"
               priority={false}

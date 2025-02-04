@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { PlayingCardListSkeleton } from "../skeletons/lists/playing-card-list-skeleton";
 import { useInfiniteTcgCards } from "@/hooks/fetch/pokemon-tcg-cards-hook";
 import { Grid } from "../layout/grid/grid";
 import { PlayingCardKpiCard } from "../cards/playing-card-kpi-card";
@@ -10,6 +9,7 @@ import {
   KpiIconTypeEnum,
   KpiTypeEnum,
 } from "@/types/enums/playing-card-kpi-enum";
+import { PlayingCardKpiCardSkeleton } from "../skeletons/lists/cards/playing-card-kpi-card-skeleton";
 
 interface PlayingCardDetailKpiListProps {
   className: string;
@@ -51,17 +51,23 @@ export function PlayingCardDetailKpiList({
 }: PlayingCardDetailKpiListProps) {
   const { data, isLoading, error } = useInfiniteTcgCards();
 
-  if (isLoading)
+  if (isLoading) {
+    console.log(data);
     return (
-      <Grid cols={1} colsSm={2} colsMd={2} colsLg={4} gap={4}>
-        <PlayingCardListSkeleton />
+      <Grid
+        className={className}
+        cols={1}
+        colsSm={2}
+        colsMd={2}
+        colsLg={4}
+        gap={4}
+      >
+        {Array.from({ length: 4 }).map((_, index) => (
+          <PlayingCardKpiCardSkeleton key={index} className="col-span-1" />
+        ))}
       </Grid>
     );
-
-  if (!isLoading && !data?.pages[0].length)
-    return (
-      <div className="text-center text-2xl font-bold mt-8">No cards found</div>
-    );
+  }
 
   if (error) return <div>An error occured</div>;
 
