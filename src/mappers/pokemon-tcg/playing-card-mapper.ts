@@ -1,6 +1,10 @@
-import { PlayingCardData } from "@/types/playing-card/playing-card-type";
+import {
+  PlayingCardData,
+  PlayingCardDetailData,
+} from "@/types/playing-card/playing-card-type";
 import {
   ApiCard,
+  ApiCardDetailReponse,
   ApiCardReponse,
   PriceVariant,
 } from "@/types/pokemon-tcg/playing-card-type";
@@ -35,5 +39,21 @@ export class PlayinCardTcgMapper {
       .filter((price): price is number => price !== undefined);
 
     return marketPrices.length > 0 ? Math.min(...marketPrices) : null;
+  };
+
+  static mapCardDetailData = (
+    response: ApiCardDetailReponse
+  ): PlayingCardDetailData => {
+    return {
+      id: response.data.id,
+      name: response.data.name,
+      images: {
+        small: response.data.images.small,
+        large: response.data.images.large,
+      },
+      set: { name: response.data.set.name },
+      rarity: response.data.rarity,
+      artist: response.data.artist,
+    };
   };
 }

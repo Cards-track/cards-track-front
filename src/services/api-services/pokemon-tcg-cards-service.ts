@@ -1,7 +1,14 @@
 import { config } from "@/lib/config";
 import { PlayinCardTcgMapper } from "@/mappers/pokemon-tcg/playing-card-mapper";
-import { PlayingCardData } from "@/types/playing-card/playing-card-type";
-import { ApiCardReponse } from "@/types/pokemon-tcg/playing-card-type";
+import {
+  PlayingCardData,
+  PlayingCardDetailData,
+} from "@/types/playing-card/playing-card-type";
+import {
+  ApiCard,
+  ApiCardDetailReponse,
+  ApiCardReponse,
+} from "@/types/pokemon-tcg/playing-card-type";
 
 // Ajout des fonctions utilitaires
 const buildOrQuery = (field: string, values: string[]): string => {
@@ -77,7 +84,32 @@ export class PokemonTcgCardsService {
     }
   }
 
+  static async fetchCardDetails(id: string): Promise<ApiCard> {
+    try {
+      const response = await fetch(`${config.pokemonTcg.baseUrl}/cards/${id}`, {
+        headers: {
+          "X-Api-Key": config.pokemonTcg.apiKey ?? "",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Error fetching card detail");
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching card detail:", error);
+      throw error;
+    }
+  }
+
   static mapCardResponse(data: ApiCardReponse): PlayingCardData[] {
     return PlayinCardTcgMapper.mapCardData(data);
+  }
+
+  static mapCardDetailResponse(
+    data: ApiCardDetailReponse
+  ): PlayingCardDetailData {
+    return PlayinCardTcgMapper.mapCardDetailData(data);
   }
 }

@@ -42,6 +42,7 @@ interface ApiCard {
   images: ApiCardImages;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   tcgplayer?: any;
+  artist: string;
 }
 
 interface ApiCardReponse {
@@ -52,6 +53,10 @@ interface ApiCardReponse {
   totalCount: number;
 }
 
+interface ApiCardDetailReponse {
+  data: ApiCard;
+}
+
 interface CardFilter {
   name: string;
   sets: string[];
@@ -59,4 +64,10 @@ interface CardFilter {
   types: string[];
 }
 
-export type { ApiCard, ApiCardReponse, PriceVariant, CardFilter };
+export type {
+  ApiCard,
+  ApiCardReponse,
+  ApiCardDetailReponse,
+  PriceVariant,
+  CardFilter,
+};
