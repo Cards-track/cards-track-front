@@ -13,6 +13,7 @@ import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { PokemonTcgCardsService } from "@/services/api-services/pokemon-tcg-cards-service";
 import { useParams } from "next/navigation";
+import { PlayingCardDetailCardSkeleton } from "../skeletons/lists/cards/playing-card-card-detail-skeleton";
 
 export type PlayingCardDetailCardProps = {
   className: string;
@@ -35,12 +36,12 @@ export function PlayingCardDetailCard({
       const response = await PokemonTcgCardsService.fetchCardDetails(
         id as string
       );
-      console.log("RESPONSE", response);
       return PokemonTcgCardsService.mapCardDetailResponse(response);
     },
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <PlayingCardDetailCardSkeleton className={className} />;
+
   if (error) return <div>An error occured</div>;
 
   return (
