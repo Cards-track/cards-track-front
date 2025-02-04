@@ -1,17 +1,10 @@
 "use client";
 
+import { PlayingCardDetailCard } from "@/components/cards/playing-card-detail-card";
 import { PriceCardChart } from "@/components/charts/price-card-chart";
 import { Grid } from "@/components/layout/grid/grid";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartNoAxesColumnIcon } from "lucide-react";
-import Image from "next/image";
 // import { useParams } from "next/navigation";
 import React from "react";
 
@@ -160,9 +153,6 @@ const kpis = [
 
 export default function CardDetailPage() {
   // const { id } = useParams();
-  const [imageError, setImageError] = React.useState(false);
-  const fallbackImageUrl = "/images/card-placeholder-small.png"; // À créer
-
   // if (isLoading) return <div>Chargement...</div>;
   // if (error) return <div>Erreur de chargement</div>;
   // if (!card) return <div>Carte non trouvée</div>;
@@ -176,36 +166,10 @@ export default function CardDetailPage() {
       colsLg={5}
       gap={0}
     >
-      <Card className="col-span-full lg:col-span-2 flex flex-col justify-between">
-        <CardHeader>
-          <CardTitle>{card.name}</CardTitle>
-          <CardDescription>{card.set.name}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex justify-center">
-          <Image
-            src={imageError ? fallbackImageUrl : card.images.small}
-            alt={card.name}
-            width={200 * 1.5}
-            height={280 * 1.5}
-            onError={() => setImageError(true)}
-            className="rounded-xl object-contain"
-            priority={false}
-          />
-        </CardContent>
-        <CardFooter>
-          <div className="flex w-full items-start gap-2 text-sm">
-            <div className="grid gap-2">
-              <div className="flex items-center gap-2 font-medium leading-none">
-                {card.artist}
-              </div>
-              <div className="flex items-center gap-2 leading-none text-muted-foreground">
-                {card.rarity}
-              </div>
-            </div>
-          </div>
-        </CardFooter>
-      </Card>
-
+      <PlayingCardDetailCard
+        card={card}
+        className="col-span-full lg:col-span-2 flex flex-col justify-between"
+      />
       <PriceCardChart className="col-span-full lg:col-span-3 flex flex-col justify-between" />
       <Grid
         className="col-span-5"

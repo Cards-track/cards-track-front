@@ -14,3 +14,17 @@ export type PlayingCardData = {
     };
   };
 };
+
+export type PlayingCardDetailData = {
+  id: string;
+  name: string;
+  images: {
+    small: string;
+    large: string;
+  };
+  rarity: string;
+  set: {
+    name: string;
+  };
+  artist: string;
+};
