@@ -18,6 +18,7 @@ const gridVariants = cva("grid", {
       3: "sm:grid-cols-3",
       4: "sm:grid-cols-4",
       5: "sm:grid-cols-5",
+      6: "sm:grid-cols-6",
     },
     colsMd: {
       1: "md:grid-cols-1",
@@ -25,6 +26,7 @@ const gridVariants = cva("grid", {
       3: "md:grid-cols-3",
       4: "md:grid-cols-4",
       5: "md:grid-cols-5",
+      6: "md:grid-cols-6",
     },
     colsLg: {
       1: "lg:grid-cols-1",
@@ -32,8 +34,10 @@ const gridVariants = cva("grid", {
       3: "lg:grid-cols-3",
       4: "lg:grid-cols-4",
       5: "lg:grid-cols-5",
+      6: "lg:grid-cols-6",
     },
     gap: {
+      0: "gap-0",
       1: "gap-1",
       2: "gap-2",
       3: "gap-3",

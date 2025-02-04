@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
+import { TrendingDown, TrendingUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 import {
@@ -17,28 +17,58 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { useMemo } from "react";
+
+// const apiData = [
+//   {
+//     url: "https://prices.pokemontcg.io/tcgplayer/dp3-1",
+//     updatedAt: "2025/01/26",
+//     prices: {
+//       holofoil: {
+//         low: 5.61,
+//         mid: 11.67,
+//         high: 44.99,
+//         market: 14.75,
+//         directLow: null,
+//       },
+//       reverseHolofoil: {
+//         low: 4.64,
+//         mid: 8.39,
+//         high: 11.97,
+//         market: 9.32,
+//         directLow: null,
+//       },
+//     },
+//   },
+// ];
+
 const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
+  { date: "2025/01/26", price: 14.75 },
+  { date: "2025/01/27", price: 10.7 },
+  { date: "2025/01/28", price: 13.85 },
+  { date: "2025/01/29", price: 12.31 },
+  { date: "2025/01/30", price: 17.05 },
+  { date: "2025/01/31", price: 16.79 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  price: {
+    label: "Price",
     color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
 
-export function PriceCardChart() {
+export function PriceCardChart({ className }: { className?: string }) {
+  const lastTrendingPrice = useMemo(() => {
+    const lastPrice = chartData[chartData.length - 1].price;
+    const beforeLastPrice = chartData[chartData.length - 2].price;
+    return ((lastPrice - beforeLastPrice) / beforeLastPrice) * 100;
+  }, []);
   return (
-    <Card>
+    <Card className={className}>
       <CardHeader>
-        <CardTitle>Line Chart</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>TCG Player Price Court</CardTitle>
+        <CardDescription>Price in $</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -52,7 +82,7 @@ export function PriceCardChart() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="date"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
@@ -63,9 +93,9 @@ export function PriceCardChart() {
               content={<ChartTooltipContent hideLabel />}
             />
             <Line
-              dataKey="desktop"
+              dataKey="price"
               type="natural"
-              stroke="var(--color-desktop)"
+              stroke="var(--color-price)"
               strokeWidth={2}
               dot={false}
             />
@@ -74,10 +104,15 @@ export function PriceCardChart() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Trending up by {lastTrendingPrice.toFixed(2)}% today{" "}
+          {lastTrendingPrice >= 0 ? (
+            <TrendingUp className="h-4 w-4 text-green-700" />
+          ) : (
+            <TrendingDown className="h-4 w-4 text-red-700" />
+          )}
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          Showing the last 7 day
         </div>
       </CardFooter>
     </Card>

@@ -1,5 +1,6 @@
 "use client";
 
+import { PriceCardChart } from "@/components/charts/price-card-chart";
 import { Grid } from "@/components/layout/grid/grid";
 import {
   Card,
@@ -9,8 +10,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ChartNoAxesColumnIcon } from "lucide-react";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import React from "react";
 
 const card = {
@@ -125,8 +127,39 @@ const card = {
   },
 };
 
+const kpis = [
+  {
+    id: 1,
+    title: "Low price",
+    value: 14.75,
+    type: "price",
+    icon: <ChartNoAxesColumnIcon size={16} />,
+  },
+  {
+    id: 2,
+    title: "Low price",
+    value: 14.75,
+    type: "price",
+    icon: <ChartNoAxesColumnIcon size={16} />,
+  },
+  {
+    id: 3,
+    title: "Low price",
+    value: 14.75,
+    type: "price",
+    icon: <ChartNoAxesColumnIcon size={16} />,
+  },
+  {
+    id: 4,
+    title: "Low price",
+    value: 14.75,
+    type: "price",
+    icon: <ChartNoAxesColumnIcon size={16} />,
+  },
+];
+
 export default function CardDetailPage() {
-  const { id } = useParams();
+  // const { id } = useParams();
   const [imageError, setImageError] = React.useState(false);
   const fallbackImageUrl = "/images/card-placeholder-small.png"; // À créer
 
@@ -135,8 +168,15 @@ export default function CardDetailPage() {
   // if (!card) return <div>Carte non trouvée</div>;
 
   return (
-    <Grid cols={1} colsSm={2} colsMd={2} colsLg={5} gap={4}>
-      <Card className="col-span-2 row-span-3">
+    <Grid
+      className="gap-x-0 gap-y-4 lg:gap-4"
+      cols={1}
+      colsSm={1}
+      colsMd={1}
+      colsLg={5}
+      gap={0}
+    >
+      <Card className="col-span-full lg:col-span-2 flex flex-col justify-between">
         <CardHeader>
           <CardTitle>{card.name}</CardTitle>
           <CardDescription>{card.set.name}</CardDescription>
@@ -166,10 +206,34 @@ export default function CardDetailPage() {
         </CardFooter>
       </Card>
 
-      <Card className="col-span-3 row-span-2"></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
+      <PriceCardChart className="col-span-full lg:col-span-3 flex flex-col justify-between" />
+      <Grid
+        className="col-span-5"
+        cols={1}
+        colsSm={2}
+        colsMd={2}
+        colsLg={4}
+        gap={4}
+      >
+        {kpis.map((kpi) => (
+          <Card key={kpi.id} className="col-span-1">
+            <CardHeader className="pb-2">
+              <CardTitle className="flex align-middle justify-between">
+                {kpi.title}
+                {kpi.icon}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col">
+                <span className="font-bold text-3xl">${kpi.value}</span>
+                <span className="leading-none text-muted-foreground">
+                  +20.1% from last month
+                </span>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </Grid>
     </Grid>
   );
 }
