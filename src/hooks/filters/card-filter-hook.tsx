@@ -6,7 +6,7 @@ import {
   updateFilterParam,
   validateUrlMultiOptionsParams,
 } from "@/utils/url-utils";
-import { PlayingCardFilterParamsEnum } from "@/types/playing-card/playing-card-filter-enum";
+import { PlayingCardFilterParamsEnum } from "@/types/enums/playing-card-filter-enum";
 
 export const useCardFilters = (
   availableSets: Option[],

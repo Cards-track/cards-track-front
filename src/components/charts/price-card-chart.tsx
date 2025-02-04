@@ -19,29 +19,6 @@ import {
 } from "@/components/ui/chart";
 import { useMemo } from "react";
 
-// const apiData = [
-//   {
-//     url: "https://prices.pokemontcg.io/tcgplayer/dp3-1",
-//     updatedAt: "2025/01/26",
-//     prices: {
-//       holofoil: {
-//         low: 5.61,
-//         mid: 11.67,
-//         high: 44.99,
-//         market: 14.75,
-//         directLow: null,
-//       },
-//       reverseHolofoil: {
-//         low: 4.64,
-//         mid: 8.39,
-//         high: 11.97,
-//         market: 9.32,
-//         directLow: null,
-//       },
-//     },
-//   },
-// ];
-
 const chartData = [
   { date: "2025/01/26", price: 14.75 },
   { date: "2025/01/27", price: 10.7 },

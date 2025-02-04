@@ -4,41 +4,45 @@ import * as React from "react";
 import { PlayingCardListSkeleton } from "../skeletons/lists/playing-card-list-skeleton";
 import { useInfiniteTcgCards } from "@/hooks/fetch/pokemon-tcg-cards-hook";
 import { Grid } from "../layout/grid/grid";
-import { ChartNoAxesColumnIcon } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { PlayingCardKpiCard } from "../cards/playing-card-kpi-card";
+import { PlayingCardKpiData } from "@/types/playing-card/playing-card-type";
+import {
+  KpiIconTypeEnum,
+  KpiTypeEnum,
+} from "@/types/enums/playing-card-kpi-enum";
 
 interface PlayingCardDetailKpiListProps {
   className: string;
 }
 
-const kpis = [
+const kpis: PlayingCardKpiData[] = [
   {
-    id: 1,
+    id: "1",
     title: "Low price",
     value: 14.75,
-    type: "price",
-    icon: <ChartNoAxesColumnIcon size={16} />,
+    type: KpiTypeEnum.PRICE,
+    iconType: KpiIconTypeEnum.CHART,
   },
   {
-    id: 2,
-    title: "Low price",
-    value: 14.75,
-    type: "price",
-    icon: <ChartNoAxesColumnIcon size={16} />,
+    id: "2",
+    title: "Max price",
+    value: 23.41,
+    type: KpiTypeEnum.PRICE,
+    iconType: KpiIconTypeEnum.CHART,
   },
   {
-    id: 3,
-    title: "Low price",
-    value: 14.75,
-    type: "price",
-    icon: <ChartNoAxesColumnIcon size={16} />,
+    id: "3",
+    title: "Market price",
+    value: 20.18,
+    type: KpiTypeEnum.PRICE,
+    iconType: KpiIconTypeEnum.CHART,
   },
   {
-    id: 4,
-    title: "Low price",
-    value: 14.75,
-    type: "price",
-    icon: <ChartNoAxesColumnIcon size={16} />,
+    id: "4",
+    title: "Sell rate",
+    value: 13,
+    type: KpiTypeEnum.PERCENT,
+    iconType: KpiIconTypeEnum.CHART,
   },
 ];
 
@@ -71,22 +75,7 @@ export function PlayingCardDetailKpiList({
       gap={4}
     >
       {kpis.map((kpi) => (
-        <Card key={kpi.id} className="col-span-1">
-          <CardHeader className="pb-2">
-            <CardTitle className="flex align-middle justify-between">
-              {kpi.title}
-              {kpi.icon}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-col">
-              <span className="font-bold text-3xl">${kpi.value}</span>
-              <span className="leading-none text-muted-foreground">
-                +20.1% from last month
-              </span>
-            </div>
-          </CardContent>
-        </Card>
+        <PlayingCardKpiCard key={kpi.id} kpi={kpi} className="col-span-1" />
       ))}
     </Grid>
   );

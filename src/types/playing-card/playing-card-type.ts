@@ -1,3 +1,5 @@
+import { KpiIconTypeEnum, KpiTypeEnum } from "../enums/playing-card-kpi-enum";
+
 export type PlayingCardData = {
   id: string;
   name: string;
@@ -27,4 +29,12 @@ export type PlayingCardDetailData = {
     name: string;
   };
   artist: string;
+};
+
+export type PlayingCardKpiData = {
+  id: string;
+  title: string;
+  value: number;
+  type: KpiTypeEnum;
+  iconType: KpiIconTypeEnum;
 };
